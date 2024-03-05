@@ -1,0 +1,37 @@
+{
+  "name": "color-snap",
+  "version": "1.0.7",
+  "description": "get the theme color from an image",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.weimob.com:7999/siqi.liu01/color-snap.git"
+  },
+  "main": "./dist/color-snap.umd.js",
+  "module": "./dist/color-snap.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/color-snap.es.js",
+      "require": "./dist/color-snap.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "siqi.liu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@rollup/plugin-babel": "^6.0.3",
+    "rollup": "^3.26.3",
+    "rollup-plugin-url": "^3.0.1"
+  },
+  "dependencies": {
+    "vite": "^4.4.9"
+  }
+}

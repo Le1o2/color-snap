@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>color-snap</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+  <image id="test" src="./asset/IMG_2192.png"></image>
+  <div class="color-group">
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+  </div>
+  <script src="./dist/js/main.umd.js"></script>
+  <script type="module">
+    import { AlgorithmType, ColorSnap } from '../src/index.js';
+    const imgSrc = {
+      "1": './asset/IMG_2192.png',
+      "2": './asset/IMG_2190.JPG',
+      "3": './asset/IMG_2191.JPG'
+    }
+    const colorSnap = new ColorSnap(imgSrc[1])
+    colorSnap.getThemeColor(5, 2).then( result => {
+      const divGroup = document.getElementsByClassName('color')
+      console.log('result===>', result)
+      result.forEach( (item, index) => {
+        divGroup[index].style.background = item.rgb
+      })
+    })
+    
+  </script>
+</body>
+<style lang="less">
+  .color-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  .color-group > div {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+  } 
+</style>
+</html>
